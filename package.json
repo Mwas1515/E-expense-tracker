@@ -1,0 +1,25 @@
+{
+  "name": "e-expense-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "expense.js",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mwas1515/E-expense-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mwas1515/E-expense-tracker/issues"
+  },
+  "homepage": "https://github.com/Mwas1515/E-expense-tracker#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
