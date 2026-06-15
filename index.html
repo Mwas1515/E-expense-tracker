@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Expense|Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-900 min-h-screen ">
+
+    <div class="flex mx-10">
+        <h1 class="bg-emerald-500 rounded-full inline-block p-6 text-white font-bold text-4xl m-10 shadow-lg">
+            E-Expense Tracker
+        </h1>
+    </div>
+
+    <div class="mx-10 max-w-5xl bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 min-h-[75vh]">
+
+        <h2 class="flex justify-center font-bold text-2xl text-white mb-6">
+            My Expenses
+        </h2>
+
+        <form class="space-y-20">
+
+            <!-- Description -->
+            <div>
+                <label class="block text-sm font-medium text-slate-300">
+                    Description
+                </label>
+                <input
+                    type="text"
+                    class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    placeholder="What did you buy?"
+                >
+            </div>
+
+            <!-- Amount & Date -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300">
+                        Amount
+                    </label>
+                    <input
+                        type="number"
+                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        placeholder="0.00"
+                    >
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300">
+                        Date
+                    </label>
+                    <input
+                        type="date"
+                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    >
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div>
+                <label class="block text-sm font-medium text-slate-300">
+                    Category
+                </label>
+                <select
+                    class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                >
+                    <option>Food & Dining</option>
+                    <option>Transportation</option>
+                    <option>Utilities</option>
+                    <option>Entertainment</option>
+                </select>
+            </div>
+
+            <button
+                class="w-full bg-emerald-500 text-white py-3 rounded-lg font-bold hover:bg-emerald-600 transition duration-200"
+            >
+                Add Expense
+            </button>
+        </form>
+    </div>
+
+    <!-- EXPENSE LIST CONTAINER (HIDDEN INITIALLY) -->
+    <div
+        id="expenseContainer"
+        class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 hidden"
+    >
+        <h2 class="text-2xl font-bold text-white mb-6">
+            Expense History
+        </h2>
+
+        <ul id="expenseList" class="space-y-4"></ul>
+    </div>
+</div>
+<script src="expense.js"></script>
+</body>
+</html>
