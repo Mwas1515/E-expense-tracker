@@ -6,7 +6,7 @@
     <title>E-Expense|Tracker</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-slate-900 min-h-screen ">
+<body class="bg-slate-900 min-h-screen">
 
     <div class="flex mx-10">
         <h1 class="bg-emerald-500 rounded-full inline-block p-6 text-white font-bold text-4xl m-10 shadow-lg">
@@ -14,85 +14,115 @@
         </h1>
     </div>
 
-    <div class="mx-10 max-w-5xl bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 min-h-[75vh]">
+    <div class="grid grid-cols-2 gap-6 mx-10">
 
-        <h2 class="flex justify-center font-bold text-2xl text-white mb-6">
-            My Expenses
-        </h2>
+        <!-- FORM CONTAINER -->
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 min-h-[75vh]">
 
-        <form class="space-y-20">
+            <h2 class="flex justify-center font-bold text-2xl text-white mb-6">
+                My Expenses
+            </h2>
 
-            <!-- Description -->
-            <div>
-                <label class="block text-sm font-medium text-slate-300">
-                    Description
-                </label>
-                <input
-                    type="text"
-                    class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="What did you buy?"
-                >
-            </div>
+            <form id="expenseForm" class="space-y-10">
 
-            <!-- Amount & Date -->
-            <div class="grid grid-cols-2 gap-4">
+                <!-- Description -->
                 <div>
                     <label class="block text-sm font-medium text-slate-300">
-                        Amount
+                        Description
                     </label>
+
                     <input
-                        type="number"
-                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                        placeholder="0.00"
+                        id="description"
+                        type="text"
+                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white"
+                        placeholder="What did you buy?"
                     >
                 </div>
 
+                <!-- Amount & Date -->
+                <div class="grid grid-cols-2 gap-4">
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300">
+                            Amount
+                        </label>
+
+                        <input
+                            id="amount"
+                            type="number"
+                            class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white"
+                            placeholder="0.00"
+                        >
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300">
+                            Date
+                        </label>
+
+                        <input
+                            id="date"
+                            type="date"
+                            class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white"
+                        >
+                    </div>
+
+                </div>
+
+                <!-- Category -->
                 <div>
                     <label class="block text-sm font-medium text-slate-300">
-                        Date
+                        Category
                     </label>
-                    <input
-                        type="date"
-                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+
+                    <select
+                        id="category"
+                        class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white"
                     >
+                        <option>Food & Dining</option>
+                        <option>Transportation</option>
+                        <option>Utilities</option>
+                        <option>Entertainment</option>
+                    </select>
                 </div>
-            </div>
 
-            <!-- Category -->
-            <div>
-                <label class="block text-sm font-medium text-slate-300">
-                    Category
-                </label>
-                <select
-                    class="w-full mt-1 p-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                <button
+                    type="submit"
+                    class="w-full bg-emerald-500 text-white py-3 rounded-lg font-bold hover:bg-emerald-600"
                 >
-                    <option>Food & Dining</option>
-                    <option>Transportation</option>
-                    <option>Utilities</option>
-                    <option>Entertainment</option>
-                </select>
-            </div>
+                    Add Expense
+                </button>
 
-            <button
-                class="w-full bg-emerald-500 text-white py-3 rounded-lg font-bold hover:bg-emerald-600 transition duration-200"
+            </form>
+
+        </div>
+
+        <!-- EXPENSE LIST -->
+        <div
+            id="expenseContainer"
+            class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 hidden"
+        >
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+                Expense History
+            </h2>
+
+            <h3
+                id="total"
+                class="text-emerald-400 text-xl font-bold mb-6"
             >
-                Add Expense
-            </button>
-        </form>
+                Total: KES 0
+            </h3>
+
+            <ul
+                id="expenseList"
+                class="space-y-4"
+            ></ul>
+
+        </div>
+
     </div>
 
-    <!-- EXPENSE LIST CONTAINER (HIDDEN INITIALLY) -->
-    <div
-        id="expenseContainer"
-        class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 hidden"
-    >
-        <h2 class="text-2xl font-bold text-white mb-6">
-            Expense History
-        </h2>
+    <script src="expense.js"></script>
 
-        <ul id="expenseList" class="space-y-4"></ul>
-    </div>
-</div>
-<script src="expense.js"></script>
 </body>
-</html>
